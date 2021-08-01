@@ -380,4 +380,29 @@ from employee, department
 where employee.dno = department.dno 
 and eno = 7788;
 
+select eno, ename, dname, e.dno
+from employee e, department d
+where e.dno = d.dno
+and eno = 7788;
+
+select e.eno, e.ename, d.dname, e.dno
+from employee e natural join department d
+where e.eno = 7788;
+
+select eno, ename, dname, dno
+from employee natural join department
+where eno = 7788;
+
+select eno, ename, dname, dno
+from employee join department
+using(dno)
+where eno = 7788;
+
+select eno, ename, dname, e.dno
+from employee e join department d
+on e.dno = d.dno
+where eno = 7788;
+
+
+
 
