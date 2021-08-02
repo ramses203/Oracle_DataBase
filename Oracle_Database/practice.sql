@@ -403,6 +403,10 @@ from employee e join department d
 on e.dno = d.dno
 where eno = 7788;
 
+select e.ename, d.dname, e.salary, s.grade
+from employee e, department d, salgrade s
+where e.dno = d.dno
+and salary 
 
 
 
