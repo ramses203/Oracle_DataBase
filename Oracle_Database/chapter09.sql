@@ -140,11 +140,52 @@ set dno = (select dno
 where job = (select job
             from emp_copy
             where eno = 7369);
+            
+create table dept_copy
+as
+select *
+from department;
 
+delete dept_copy
+where dname = 'RESEARCH';
 
+delete dept_copy
+where dno in (10, 40);
 
+create table customer(
+id varchar(20) not null,
+pwd varchar(20) not null,
+name varchar(20) not null,
+phone varchar(30),
+address varchar(100));
 
+insert into customer
+values(null, null, null, '010-111-1111', 'seoul');
 
+create table customer1(
+id varchar(20) unique,
+pwd varchar(20) not null,
+name varchar(20) not null,
+phone varchar(30),
+address varchar(100));
+
+insert into customer1
+values('greentea', '1234', '녹차아가씨', '010-111-1111', 'seoul');
+
+insert into customer1
+values(null, '11223344', '그린티', '020-2222-2222', 'seoul');
+
+/*제약조건에 이름을 넣기 : 제약조건을 제거할때 쉽게 제거하기 위해서*/
+-- 제약 조건 이름을 부여하지 않을 경우 Oracle 에서 랜덤하게 이름을 생성
+
+create table customer3(
+id varchar(20) constraint customer_id_uk unique,
+pwd varchar(20) constraint customer_pwd_nn not null,
+name varchar(20) constraint customer_name_nn not null,
+phone varchar(30),
+address varchar(100));
+
+select * from user_constraints;
 
 
 
