@@ -330,6 +330,145 @@ dbms_output.put_line(v_emp.eno||'  '||v_emp.ename||'   '||v_dname);
 end;
 /
 
+set serveroutput on
+declare
+i number :=1;
+total number :=0;
+begin
+loop
+dbms_output.put_line(i);
+total := total+i;
+i := i+1;
+exit when i > 10;
+end loop;
+dbms_output.put_line(total);
+end;
+/
+
+set serveroutput on
+declare
+total number := 0;
+begin
+for i in 1..10 loop
+total := total+i;
+end loop;
+dbms_output.put_line(total);
+end;
+/
+
+set serveroutput on
+declare
+i number :=1;
+total number :=0;
+begin
+while i<=10 loop
+total := total + i;
+i := i+1;
+end loop;
+dbms_output.put_line(total);
+end;
+/
+
+set serveroutput on
+declare 
+v_emp employee%rowtype;
+cursor c1
+is
+select * from employee
+where commission is not null;
+begin
+dbms_output.put_line('사번     이름       급여');
+dbms_output.put_line('----------------------------');
+for v_emp in c1 loop
+exit when c1%notfound;
+dbms_output.put_line(v_emp.eno||'   '||v_emp.ename||'   '||v_emp.salary);
+end loop;
+end;
+/
+
+set serveroutput on 
+declare
+v_emp employee%rowtype;
+cursor c1
+is
+select * from employee
+where commission is not null
+order by ename desc;
+begin
+dbms_output.put_line('사번   이름   급여');
+dbms_output.put_line('------------------');
+for v_emp in c1 loop
+exit when c1%notfound;
+dbms_output.put_line(v_emp.eno||'   '||v_emp.ename||'    '||v_emp.salary);
+end loop;
+end;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
