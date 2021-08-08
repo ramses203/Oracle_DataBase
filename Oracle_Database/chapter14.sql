@@ -213,6 +213,210 @@ dbms_output.put_line(v_eno||'    '||v_ename||'    '||v_dname);
 end;
 /
 
+set serveroutput on
+declare
+dan number := 2;
+i number := 1;
+begin
+loop
+dbms_output.put_line(dan||' * '||i||' = '||(dan*i));
+i := i+1;
+if(i>9) then
+exit;
+end if;
+end loop;
+end;
+/
+
+set serveroutput on
+declare
+dan number :=2;
+i number :=1;
+begin
+for i in 1..9 loop
+dbms_output.put_line(dan||' * '||i||' = '||(dan*i));
+end loop;
+end;
+/
+
+
+set serveroutput on
+declare
+dan number := 2;
+i number := 1;
+begin
+while i<=9 loop
+dbms_output.put_line(dan||' * '||i||' = '||(dan*i));
+i := i+1;
+end loop;
+end;
+/
+
+set serveroutput on
+declare
+v_dept department%rowtype;
+cursor c1
+is
+select * from department;
+begin
+dbms_output.put_line('부서번호     부서명     지역명');
+dbms_output.put_line('----------------------------');
+open c1;
+loop
+fetch c1 into v_dept.dno, v_dept.dname, v_dept.loc;
+exit when c1%notfound;
+dbms_output.put_line(v_dept.dno||'    '||v_dept.dname||'    '||v_dept.loc);
+end loop;
+close c1;
+end;
+/
+
+set serveroutput on
+declare 
+v_dept department%rowtype;
+cursor c1
+is
+select * from department;
+begin
+dbms_output.put_line('부서번호    부서명    지역명');
+dbms_output.put_line('-------------------------');
+open c1;
+loop
+fetch c1 into v_dept.dno, v_dept.dname, v_dept.loc;
+exit when c1%notfound;
+dbms_output.put_line(v_dept.dno||'   '||v_dept.dname||'    '||v_dept.loc);
+end loop;
+close c1;
+end;
+/
+
+set serveroutput on
+declare
+v_dept department%rowtype;
+cursor c1
+is
+select * from department;
+begin
+dbms_output.put_line('부서번호   부서명    지역명');
+dbms_output.put_line('========================');
+for v_dept in c1 loop
+exit when c1%notfound;
+dbms_output.put_line(v_dept.dno||'    '||v_dept.dname||'    '||v_dept.loc);
+end loop;
+end;
+/
+
+set serveroutput on 
+declare
+v_emp employee%rowtype;
+v_dname varchar2(20);
+begin
+select * into v_emp
+from employee
+where ename = 'SCOTT';
+
+if(v_emp.dno = 10)then
+v_dname :='ACCOUNTING';
+elsif(v_emp.dno = 20)then
+v_dname :='RESEARCH';
+elsif(v_emp.dno = 30)then
+v_dname :='SALES';
+elsif(v_emp.dno = 40)then
+v_dname :='OPERATIONS';
+end if;
+dbms_output.put_line('사번   이름    부서명');
+dbms_output.put_line('===================');
+dbms_output.put_line(v_emp.eno||'  '||v_emp.ename||'   '||v_dname);
+end;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
