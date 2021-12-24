@@ -100,6 +100,27 @@ select * from employee where commission is null;
 -- 컬럼 값이 null이 아닌지 조회하기
 select * from employee where commission is not null;
 
+-- 급여를 기준으로 오름차순 정렬하기
+select * from employee order by salary asc;
+
+-- 정렬방식 생략하기
+select * from employee order by salary;
+
+-- 급여를 기준으로 내림차순 정렬하기
+select * from employee order by salary desc;
+
+-- 문자데이터로 오름차순하기
+select * from employee order by ename;
+
+-- 여러개의 칼럼에 대해서 정렬순서 정하기
+select * from employee order by salary desc, ename asc;
+
+-- 덧셈연산자를 이용하여 모든 사원에 대해서 $300의 급여인상을 계산한 후 사원의 이름, 급여, 인상된 급여를 출력하시오.
+select ename, salary, salary+300 "인상된 급여" from employee;
+
+-- 사원의 이름, 급여, 연간 총수입을 총수입이 많은 것 부터 작은 순으로 출력하시오. 연간 총수입은 월급에 12를 곱한후 $100의 상여금을 더해서 계산하시오.
+select ename, salary, salary*12+100 "연간 총수입" from employee order by "연간 총수입" desc; 
+
 
 
 
