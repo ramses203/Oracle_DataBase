@@ -1,125 +1,126 @@
--- ÀüÃ¼»ç¿ø Ãâ·ÂÇÏ±â
+-- ì „ì²´ì‚¬ì› ì¶œë ¥í•˜ê¸°
 select * from employee;
 
--- »ç¿ø¹øÈ£¿Í »ç¿ø¸í¸¸ Ãâ·ÂÇÏ±â
+-- ì‚¬ì›ë²ˆí˜¸ì™€ ì‚¬ì›ëª…ë§Œ ì¶œë ¥í•˜ê¸°
 select eno, ename from employee;
 
--- ¿¬ºÀ±¸ÇÏ±â
+-- ì—°ë´‰êµ¬í•˜ê¸°
 select ename, salary, salary*12 from employee;
 
--- Ä¿¹Ì¼Ç ´õÇÑ ¿¬ºÀ ±¸ÇÏ±â
+-- ì»¤ë¯¸ì…˜ ë”í•œ ì—°ë´‰ êµ¬í•˜ê¸°
 select ename, salary, salary*12+commission from employee;
 
--- distinct·Î Áßº¹µÈ µ¥ÀÌÅÍ¸¦ ÇÑ¹ø¾¿¸¸ Ãâ·ÂÇÏ±â
+-- distinctë¡œ ì¤‘ë³µëœ ë°ì´í„°ë¥¼ í•œë²ˆì”©ë§Œ ì¶œë ¥í•˜ê¸°
 select DISTINCT dno from employee;
 
--- dual Å×ÀÌºíl ±¸Á¶ »ìÆìº¸±â
+-- dual í…Œì´ë¸”Âl êµ¬ì¡° ì‚´íŽ´ë³´ê¸°
 desc dual;
 
--- dummy ÄÃ·³ °ª È®ÀÎÇÏ±â
+-- dummy ì»¬ëŸ¼ ê°’ í™•ì¸í•˜ê¸°
 select * from dual;
 
--- ¿À´Ã ³¯Â¥ Ãâ·ÂÇÏ±â
+-- ì˜¤ëŠ˜ ë‚ ì§œ ì¶œë ¥í•˜ê¸°
 select sysdate from department;
 
--- ¿À´Ã ³¯Â¥ ÇÑ¹ø Ãâ·ÂÇÏ±â
+-- ì˜¤ëŠ˜ ë‚ ì§œ í•œë²ˆ ì¶œë ¥í•˜ê¸°
 select sysdate from dual;
 
--- ±Þ¿©(salary)°¡ 1500 ÀÌ»óÀÎ »ç¿ø Ãâ·ÂÇÏ±â
+-- ê¸‰ì—¬(salary)ê°€ 1500 ì´ìƒì¸ ì‚¬ì› ì¶œë ¥í•˜ê¸°
 select salary from employee where salary >= 1500;
 
--- 10¹ø ºÎ¼­ ¼Ò¼Ó »ç¿ø Ãâ·ÂÇÏ±â
+-- 10ë²ˆ ë¶€ì„œ ì†Œì† ì‚¬ì› ì¶œë ¥í•˜ê¸°
 select dno, ename from employee where dno = 10;
 
--- scott¸¦ Ä®·³À¸·Î °£ÁÖÇÏ°í ¿À·ù¸¦ ¹ß»ýÇÑ ¿¹
+-- scottë¥¼ ì¹¼ëŸ¼ìœ¼ë¡œ ê°„ì£¼í•˜ê³  ì˜¤ë¥˜ë¥¼ ë°œìƒí•œ ì˜ˆ
 select * from employee where ename = 'SCOTT';
 
--- ÀÔ»çÀÏ(hiredate)ÀÌ '1981/01/01' ÀÌÀüÀÎ »ç¿ø¸¸ Ãâ·ÂÇÏ±â
+-- ìž…ì‚¬ì¼(hiredate)ì´ '1981/01/01' ì´ì „ì¸ ì‚¬ì›ë§Œ ì¶œë ¥í•˜ê¸°
 select * from employee where hiredate <= '1981/01/01';
 
--- ºÎ¼­¹øÈ£°¡ 10ÀÌ°í Á÷±ÞÀÌ 'manager' ÀÎ »ç¿ø¸¸ Ãâ·ÂÇÏ±â
+-- ë¶€ì„œë²ˆí˜¸ê°€ 10ì´ê³  ì§ê¸‰ì´ 'manager' ì¸ ì‚¬ì›ë§Œ ì¶œë ¥í•˜ê¸°
 select * from employee where dno=10 and job='MANAGER';
 
--- ºÎ¼­¹øÈ£°¡ 10ÀÌ°Å³ª Á÷±ÞÀÌ 'manager' ÀÎ »ç¿ø¸¸ Ãâ·ÂÇÏ±â
+-- ë¶€ì„œë²ˆí˜¸ê°€ 10ì´ê±°ë‚˜ ì§ê¸‰ì´ 'manager' ì¸ ì‚¬ì›ë§Œ ì¶œë ¥í•˜ê¸°
 select * from employee where dno=10 or job='MANAGER';
 
--- NOTÀ» ÀÌ¿ëÇÑ Á¶°Ç ÁöÁ¤ÇÏ±â
+-- NOTì„ ì´ìš©í•œ ì¡°ê±´ ì§€ì •í•˜ê¸°
 select * from employee where not dno=10;
 
--- <> ¸¦ ÀÌ¿ëÇÑ Á¶°Ç ÁöÁ¤ÇÏ±â
+-- <> ë¥¼ ì´ìš©í•œ ì¡°ê±´ ì§€ì •í•˜ê¸°
 select * from employee where dno <> 10;
 
--- ±Þ¿©°¡ 1000¿¡¼­ 1500»çÀÌÀÎ »ç¿ø Ãâ·ÂÇÏ±â
+-- ê¸‰ì—¬ê°€ 1000ì—ì„œ 1500ì‚¬ì´ì¸ ì‚¬ì› ì¶œë ¥í•˜ê¸°
 select * from employee where salary >= 1000 and salary <= 1500;
 
--- ±Þ¿©°¡ 1000¹Ì¸¸ÀÌ°Å³ª 1500ÃÊ°úÀÎ »ç¿ø Ãâ·ÂÇÏ±â
+-- ê¸‰ì—¬ê°€ 1000ë¯¸ë§Œì´ê±°ë‚˜ 1500ì´ˆê³¼ì¸ ì‚¬ì› ì¶œë ¥í•˜ê¸°
 select * from employee where salary < 1000 or salary > 1500;
 
--- Ä¿¹Ì¼ÇÀÌ 300ÀÌ°Å³ª 500ÀÌ°Å³ª 1400ÀÎ »ç¿ø Ãâ·ÂÇÏ±â
+-- ì»¤ë¯¸ì…˜ì´ 300ì´ê±°ë‚˜ 500ì´ê±°ë‚˜ 1400ì¸ ì‚¬ì› ì¶œë ¥í•˜ê¸°
 select * from employee where commission=300 or commission=500 or commission=1400; 
 
--- between and ¿¬»êÀÚ »ç¿ëÇØ¼­ 1000¿¡¼­ 1500»çÀÌÀÎ »ç¿øÀ» Ãâ·ÂÇÏ±â
+-- between and ì—°ì‚°ìž ì‚¬ìš©í•´ì„œ 1000ì—ì„œ 1500ì‚¬ì´ì¸ ì‚¬ì›ì„ ì¶œë ¥í•˜ê¸°
 select * from employee where salary BETWEEN 1000 and 1500;
 
--- not between and ¿¬»êÀÚ »ç¿ëÇÏ±â
+-- not between and ì—°ì‚°ìž ì‚¬ìš©í•˜ê¸°
 select * from employee where salary not between 1000 and 1500;
 
--- in ¿¬»êÀÚ¸¦ »ç¿ëÇØ¼­ Ä¿¹Ì¼ÇÀÌ 300ÀÌ°Å³ª 500ÀÌ°Å³ª 1400ÀÎ »ç¿øÀ» °Ë»öÇÏ¼¼¿ä
+-- in ì—°ì‚°ìžë¥¼ ì‚¬ìš©í•´ì„œ ì»¤ë¯¸ì…˜ì´ 300ì´ê±°ë‚˜ 500ì´ê±°ë‚˜ 1400ì¸ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì„¸ìš”
 select * from employee where commission in(300,500,1400);
 
--- commissionÀÌ 300, 500, 1400ÀÌ ¸ðµÎ ¾Æ´Ñ »ç¿øÀ» °Ë»öÇÏ±â À§ÇØ¼­ <> ¿¬»êÀÚ¸¦ »ç¿ëÇØ º¸¼¼¿ä.
+-- commissionì´ 300, 500, 1400ì´ ëª¨ë‘ ì•„ë‹Œ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ê¸° ìœ„í•´ì„œ <> ì—°ì‚°ìžë¥¼ ì‚¬ìš©í•´ ë³´ì„¸ìš”.
 select * from employee where commission<>300 and commission<>500 and commission<>1400;
 
--- commissionÀÌ 300, 500, 1400ÀÌ ¸ðµÎ ¾Æ´Ñ »ç¿øÀ» °Ë»öÇÏ±â À§ÇØ¼­ not in ¿¬»êÀÚ¸¦ »ç¿ëÇØ º¸¼¼¿ä.
+-- commissionì´ 300, 500, 1400ì´ ëª¨ë‘ ì•„ë‹Œ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ê¸° ìœ„í•´ì„œ not in ì—°ì‚°ìžë¥¼ ì‚¬ìš©í•´ ë³´ì„¸ìš”.
 select * from employee where commission not in(300,500,1400);
 
--- »ç¿ø Å×ÀÌºíÁß F·Î ½ÃÀÛÇÏ´Â ÀÌ¸§À» °®´Â »ç¿øÀ» °Ë»öÇÏ¼¼¿ä
+-- ì‚¬ì› í…Œì´ë¸”ì¤‘ Fë¡œ ì‹œìž‘í•˜ëŠ” ì´ë¦„ì„ ê°–ëŠ” ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì„¸ìš”
 select * from employee where ename like 'F%';
 
--- »ç¿ø Å×ÀÌºíÁß M·Î ½ÃÀÛÇÏ´Â ÀÌ¸§À» °®´Â »ç¿øÀ» °Ë»öÇÏ¼¼¿ä
+-- ì‚¬ì› í…Œì´ë¸”ì¤‘ Më¡œ ì‹œìž‘í•˜ëŠ” ì´ë¦„ì„ ê°–ëŠ” ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì„¸ìš”
 select * from employee where ename like 'M%';
 
--- »ç¿ø Å×ÀÌºíÁß N·Î ³¡³ª´Â ÀÌ¸§À» °®´Â »ç¿øÀ» °Ë»öÇÏ¼¼¿ä
+-- ì‚¬ì› í…Œì´ë¸”ì¤‘ Në¡œ ëë‚˜ëŠ” ì´ë¦„ì„ ê°–ëŠ” ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì„¸ìš”
 select * from employee where ename like '%N';
 
--- »ç¿ø Å×ÀÌºíÁß ÀÌ¸§¿¡ MÀÌ Æ÷ÇÔµÇ¾î ÀÖ´Â °®´Â »ç¿øÀ» °Ë»öÇÏ¼¼¿ä
+-- ì‚¬ì› í…Œì´ë¸”ì¤‘ ì´ë¦„ì— Mì´ í¬í•¨ë˜ì–´ ìžˆëŠ” ê°–ëŠ” ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì„¸ìš”
 select * from employee where ename like '%M%';
 
--- »ç¿ø Å×ÀÌºíÁß ÀÌ¸§ÀÇ µÎ¹øÂ° ±ÛÀÚ°¡ 'A'ÀÎ »ç¿øÀ» °Ë»öÇÏ¼¼¿ä
+-- ì‚¬ì› í…Œì´ë¸”ì¤‘ ì´ë¦„ì˜ ë‘ë²ˆì§¸ ê¸€ìžê°€ 'A'ì¸ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì„¸ìš”
 select * from employee where ename like '__A%';
 
--- »ç¿ø ÀÌ¸§¿¡ A°¡ Æ÷ÇÔµÇÁö ¾ÊÀº »ç¿øÀ» °Ë»öÇÏ½Ã¿À
+-- ì‚¬ì› ì´ë¦„ì— Aê°€ í¬í•¨ë˜ì§€ ì•Šì€ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì‹œì˜¤
 select * from employee where ename not like '%A%';
 
--- »ç¿øÀÇ Ä¿¹Ì¼ÇÀ» Ãâ·ÂÇÏ½Ã¿À
+-- ì‚¬ì›ì˜ ì»¤ë¯¸ì…˜ì„ ì¶œë ¥í•˜ì‹œì˜¤
 select ename, dno, commission from employee;
 
--- Ä¿¹Ì¼ÇÀÌ nullÀÎ »ç¿øÀ» Ã£´Âµ¥ ½ÇÆÐÇÏ´Â ¿¹
+-- ì»¤ë¯¸ì…˜ì´ nullì¸ ì‚¬ì›ì„ ì°¾ëŠ”ë° ì‹¤íŒ¨í•˜ëŠ” ì˜ˆ
 select * from employee where commission is null;
 
--- ÄÃ·³ °ªÀÌ nullÀÌ ¾Æ´ÑÁö Á¶È¸ÇÏ±â
+-- ì»¬ëŸ¼ ê°’ì´ nullì´ ì•„ë‹Œì§€ ì¡°íšŒí•˜ê¸°
 select * from employee where commission is not null;
 
--- ±Þ¿©¸¦ ±âÁØÀ¸·Î ¿À¸§Â÷¼ø Á¤·ÄÇÏ±â
+-- ê¸‰ì—¬ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•˜ê¸°
 select * from employee order by salary asc;
 
--- Á¤·Ä¹æ½Ä »ý·«ÇÏ±â
+-- ì •ë ¬ë°©ì‹ ìƒëžµí•˜ê¸°
 select * from employee order by salary;
 
--- ±Þ¿©¸¦ ±âÁØÀ¸·Î ³»¸²Â÷¼ø Á¤·ÄÇÏ±â
+-- ê¸‰ì—¬ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬í•˜ê¸°
 select * from employee order by salary desc;
 
--- ¹®ÀÚµ¥ÀÌÅÍ·Î ¿À¸§Â÷¼øÇÏ±â
+-- ë¬¸ìžë°ì´í„°ë¡œ ì˜¤ë¦„ì°¨ìˆœí•˜ê¸°
 select * from employee order by ename;
 
--- ¿©·¯°³ÀÇ Ä®·³¿¡ ´ëÇØ¼­ Á¤·Ä¼ø¼­ Á¤ÇÏ±â
+-- ì—¬ëŸ¬ê°œì˜ ì¹¼ëŸ¼ì— ëŒ€í•´ì„œ ì •ë ¬ìˆœì„œ ì •í•˜ê¸°
 select * from employee order by salary desc, ename asc;
 
--- µ¡¼À¿¬»êÀÚ¸¦ ÀÌ¿ëÇÏ¿© ¸ðµç »ç¿ø¿¡ ´ëÇØ¼­ $300ÀÇ ±Þ¿©ÀÎ»óÀ» °è»êÇÑ ÈÄ »ç¿øÀÇ ÀÌ¸§, ±Þ¿©, ÀÎ»óµÈ ±Þ¿©¸¦ Ãâ·ÂÇÏ½Ã¿À.
-select ename, salary, salary+300 "ÀÎ»óµÈ ±Þ¿©" from employee;
+-- ë§ì…ˆì—°ì‚°ìžë¥¼ ì´ìš©í•˜ì—¬ ëª¨ë“  ì‚¬ì›ì— ëŒ€í•´ì„œ $300ì˜ ê¸‰ì—¬ì¸ìƒì„ ê³„ì‚°í•œ í›„ ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ì¸ìƒëœ ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
+select ename, salary, salary+300 "ì¸ìƒëœ ê¸‰ì—¬" from employee;
 
--- »ç¿øÀÇ ÀÌ¸§, ±Þ¿©, ¿¬°£ ÃÑ¼öÀÔÀ» ÃÑ¼öÀÔÀÌ ¸¹Àº °Í ºÎÅÍ ÀÛÀº ¼øÀ¸·Î Ãâ·ÂÇÏ½Ã¿À. ¿¬°£ ÃÑ¼öÀÔÀº ¿ù±Þ¿¡ 12¸¦ °öÇÑÈÄ $100ÀÇ »ó¿©±ÝÀ» ´õÇØ¼­ °è»êÇÏ½Ã¿À.
-select ename, salary, salary*12+100 "¿¬°£ ÃÑ¼öÀÔ" from employee order by "¿¬°£ ÃÑ¼öÀÔ" desc; 
+-- ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ì—°ê°„ ì´ìˆ˜ìž…ì„ ì´ìˆ˜ìž…ì´ ë§Žì€ ê²ƒ ë¶€í„° ìž‘ì€ ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤. ì—°ê°„ ì´ìˆ˜ìž…ì€ ì›”ê¸‰ì— 12ë¥¼ ê³±í•œí›„ $100ì˜ ìƒì—¬ê¸ˆì„ ë”í•´ì„œ ê³„ì‚°í•˜ì‹œì˜¤.
+select ename, salary, salary*12+100 "ì—°ê°„ ì´ìˆ˜ìž…" from employee order by "ì—°ê°„ ì´ìˆ˜ìž…" desc; 
+--
 
 
 
